@@ -4,7 +4,7 @@ from django.shortcuts import render, HttpResponse
 
 
 def home(request):
-    return HttpResponse("<h1>home</h1>")
+    return render(request, 'core/home.html')
 
 def about(request):
     return HttpResponse("<h1>about</h1>")
