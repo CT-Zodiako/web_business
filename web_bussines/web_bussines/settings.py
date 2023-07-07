@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
+    'contact',
     'core',
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
     'pages.apps.PagesConfig',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -125,11 +127,31 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-#Media files
+# Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /"media"
+MEDIA_ROOT = BASE_DIR / "media"
+
+#ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+#email config
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'ee8eda84c3a16c'
+EMAIL_HOST_PASSWORD = '433ada59eae35c'
+EMAIL_PORT = '2525'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
